@@ -18,7 +18,6 @@ void pingSensor(int sensor) {
       break;
     case '3': 
       break;
-      // define trigPin, echoPin, and ping sensor 3
     default: 
       Serial.println("Invalid Sensor!");
       break;
