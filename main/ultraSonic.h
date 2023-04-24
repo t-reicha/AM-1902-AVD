@@ -63,7 +63,7 @@ void pingSensor(int sensor) {
       Serial.print(value);
       Serial.println(" cm");
     }
-    driveForward(25);
+    drive(25);
   } else {
     return;
   }
