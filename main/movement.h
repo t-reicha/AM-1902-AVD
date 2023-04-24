@@ -74,36 +74,6 @@ void drive(float speeds) {
 }
 
 
-void driveBackward(float speeds) {
-  float dutyCycle = floatMap(speeds, 0, 100, 7.5, 5);
-  float finalCycle = 7.5;
-
-  if (dutyCycle > 7.5) {
-    Serial.println("Duty Cycle is too high! (motors)");
-    return;
-  } else if (dutyCycle < 5) {
-    Serial.println("Duty Cycle is too low! (motors)");
-    return;
-  } else {
-    while (finalCycle > dutyCycle) {
-      P1.writePWM(finalCycle, frequency, slot, d);
-      P1.writePWM(finalCycle, frequency, slot, p);
-
-      finalCycle -= 0.05;
-      delay(50);
-      Serial.println(finalCycle);
-    }
-  }
-
-   if (finalCycle < 7.5) {
-    bool moving = true;
-  } else {
-    bool moving = false;
-  }
-}
-
-
-
 void stopCarForward(float speeds) {
 
   float neutral = 7.5;
