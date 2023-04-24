@@ -91,7 +91,7 @@ void stopCarBackward(float speeds) {
 
 
 void turn(float amount) {
-  dutyCycle = amount;
+  dutyCycle = floatMap(amount, -100, 100, 6.5, 8.5);
 
   if (dutyCycle < 6.5) {
     Serial.println("Duty Cycle is too low! (servo)");

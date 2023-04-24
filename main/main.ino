@@ -24,4 +24,22 @@ void loop() {
   // bravo();
 
   // charlie();
+
+  turn(50);
+
+  delay(5000);
+
+  turn(100);
+  delay(5000);
+
+  turn(-50);
+  delay(5000);
+
+  turn(-100);
+
+  delay(5000);
+
+  turn(0);
+
+  delay(10000);
 }
