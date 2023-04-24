@@ -79,7 +79,7 @@ void charlie() {
 
   unsigned long timenow = 0;
 
-  driveForward(25);
+  drive(25);
   
   while (millis() <= timenow + 100000) {
     //pingSensor('1');

@@ -22,7 +22,6 @@ void loop() {
   // alpha();
 
   // bravo();
-  delay(2500);
 
-  charlie();
+  // charlie();
 }

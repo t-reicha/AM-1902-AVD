@@ -40,31 +40,36 @@ void driveOld(float speeds) {
 }
 
 
-void driveForward(float speeds) {
-  float dutyCycle = floatMap(speeds, 0, 100, 7.5, 10);
+void drive(float speeds) {
+  float dutyCycle = floatMap(speeds, -100, 100, 5, 10);
   float finalCycle = 7.5;
 
-  if (dutyCycle < 7.5) {
+  if (dutyCycle < 5) {
     Serial.println("Duty Cycle is too low! (motors)");
     return;
   } else if (dutyCycle > 10) {
     Serial.println("Duty Cycle is too high! (motors)");
     return;
   } else {
-    
-    while (finalCycle < dutyCycle) {
-      P1.writePWM(finalCycle, frequency, slot, d);
-      P1.writePWM(finalCycle, frequency, slot, p);
 
-      finalCycle += 0.05;
-      delay(50);
+    if (dutyCycle > 7.5 && dutyCycle <= 10) {
+      while (finalCycle < dutyCycle) {
+        P1.writePWM(finalCycle, frequency, slot, d);
+        P1.writePWM(finalCycle, frequency, slot, p);
+
+        finalCycle += 0.05;
+        delay(50);
+      }
+    } else if (dutyCycle < 7.5 && dutyCycle >= 5) {
+       while (finalCycle > dutyCycle) {
+        P1.writePWM(finalCycle, frequency, slot, d);
+        P1.writePWM(finalCycle, frequency, slot, p);
+
+        finalCycle -= 0.05;
+        delay(50);
+        Serial.println(finalCycle);
+      }
     }
-  }
-
-  if (finalCycle > 7.5) {
-    bool moving = true;
-  } else {
-    bool moving = false;
   }
 }
 
