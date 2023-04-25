@@ -89,7 +89,7 @@ void charlie() {
   }
 
     
-  stopCarForward(25);
+  stopCar(25);
   delay(2000);
   signalFinish('C');
   delay(10000);

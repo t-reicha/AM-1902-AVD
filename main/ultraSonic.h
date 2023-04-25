@@ -44,7 +44,7 @@ void pingSensor(int sensor) {
   
   if (value < 100 && value != 0) {
     
-    stopCarForward(25);
+    stopCar(25);
     while (value < 100) {
       speed0;
       digitalWrite(trigPin, LOW);

@@ -57,35 +57,28 @@ void drive(float speeds) {
 }
 
 
-void stopCarForward(float speeds) {
+void stopCar(float speeds) {
 
   float neutral = 7.5;
   
-  float dutyCycle = floatMap(speeds, 0, 100, 7.5, 10);
+  float dutyCycle = floatMap(speeds, -100, 100, 5, 10);
 
-  while (dutyCycle > neutral) {
-    P1.writePWM(dutyCycle, frequency, slot, d);
-    P1.writePWM(dutyCycle, frequency, slot, p);
+  if (dutyCycle > neutral) {
+    while (dutyCycle > neutral) {
+      P1.writePWM(dutyCycle, frequency, slot, d);
+      P1.writePWM(dutyCycle, frequency, slot, p);
 
-    dutyCycle -= 0.05;
-    delay(50);
-  }
-}
+      dutyCycle -= 0.05;
+      delay(50);
+    }
+  } else if (dutyCycle < neutral) {
+    while (dutyCycle < neutral) {
+      P1.writePWM(dutyCycle, frequency, slot, d);
+      P1.writePWM(dutyCycle, frequency, slot, p);
 
-
-void stopCarBackward(float speeds) {
-
-  float neutral = 7.5;
-  
-  float dutyCycle = floatMap(speeds, 0, 100, 7.5, 5);
-
-  while (dutyCycle < neutral) {
-    P1.writePWM(dutyCycle, frequency, slot, d);
-    P1.writePWM(dutyCycle, frequency, slot, p);
-
-    dutyCycle += 0.05;
-    delay(50);
-    Serial.println(dutyCycle);
+      dutyCycle += 0.05;
+      delay(50);
+    }
   }
 }
 
@@ -105,8 +98,31 @@ void turn(float amount) {
   }
 }
 
+void lights(int light, bool state) {
+  int digitalSlot = 1;
+  
+  switch (light) {
+    case 1:
+      if (state == true) {
+        P1.writeDiscrete(HIGH, digitalSlot, 1);
+      } else if (state = false) {
+        P1.writeDiscrete(LOW, digitalSlot, 1);
+      }
+      break;
+    case 2:
+      if (state == true) {
+        P1.writeDiscrete(HIGH, digitalSlot, 1);
+      } else if (state = false) {
+        P1.writeDiscrete(LOW, digitalSlot, 1);
+      }
+      break;
+    default:
+      Serial.println("Invalid light!");
+      break;
+  }
+}
 
-
+// rewrite using lights() and test
 void signalFinish(char task) {
   int digitalSlot = 1;
 

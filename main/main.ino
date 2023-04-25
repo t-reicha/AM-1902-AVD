@@ -25,21 +25,5 @@ void loop() {
 
   // charlie();
 
-  turn(50);
-
-  delay(5000);
-
-  turn(100);
-  delay(5000);
-
-  turn(-50);
-  delay(5000);
-
-  turn(-100);
-
-  delay(5000);
-
-  turn(0);
-
-  delay(10000);
+  // test stopCar(), and test new signalFinish()
 }
