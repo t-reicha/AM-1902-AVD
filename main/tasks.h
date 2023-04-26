@@ -11,44 +11,55 @@ void alpha() {
   
   stopCar(0);
   centerServo();
+  housekeeping();
   delay(1500);  
 
-  housekeeping();
-
   drive(25);
+  housekeeping();
   delay(2000);
 
   stopCar(25);
+  housekeeping();
   delay(500);
   
   turn(100);
+  housekeeping();
   delay(2500);
   
   drive(25);
+  housekeeping();
   delay(2000);
 
   stopCar(25);
+  housekeeping();
   delay(500);
   
   turn(-100);
+  housekeeping();
   delay(2500);
   
   drive(25);
+  housekeeping();
   delay(2000);
 
   stopCar(25);
+  housekeeping();
   delay(500);
   
   turn(0);
+  housekeeping();
   delay(2500);
   
   drive(-25);
+  housekeeping();
   delay(2500);
 
   stopCar(-25);
+  housekeeping();
   delay(1500);
   
   signalFinish('A');
+  housekeeping();
   delay(1500);
   
   return;

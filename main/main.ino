@@ -48,7 +48,9 @@ void loop() {
     alpha();
   }
 
-  // bravo();
+  if (MB_C[1]) {
+    bravo();
+  }
 
   // charlie();
 
