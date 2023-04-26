@@ -51,29 +51,29 @@ void alpha() {
   return;
 }
 
-/*
+
 void bravo() {
-  stopCar();
+  speed0();
   centerServo();
   delay(1500);
   
-  drive(8.25);
+  drive(20);
   delay(500);
 
-  turn(6.5);
+  turn(-100);
   delay(3750);
 
-  turn(8.5);
+  turn(100);
   delay(21000);
 
-  turn(6.5);
+  turn(-100);
   delay(3750);
 
-  turn(7.5);
+  turn(0);
 
   delay(1500);
   
-  stopCar();
+  stopCar(20);
   delay(2000);
 
   signalFinish('B');
@@ -81,7 +81,7 @@ void bravo() {
 
   return;
 }
-*/
+
 
 void charlie() {
   
