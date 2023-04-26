@@ -229,11 +229,4 @@ void signalFinish(char task) {
 }
 
 
-void speed0() {
-  float dutyCycle = 7.5;
-  
-  P1.writePWM(dutyCycle, frequency, slot, d);
-  P1.writePWM(dutyCycle, frequency, slot, p);
-}
-
 #endif

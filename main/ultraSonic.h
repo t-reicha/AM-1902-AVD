@@ -46,7 +46,7 @@ void pingSensor(int sensor) {
     
     stopCar(25);
     while (value < 100) {
-      speed0;
+      stopCar(0);
       digitalWrite(trigPin, LOW);
       delayMicroseconds(2);
       digitalWrite(trigPin, HIGH);

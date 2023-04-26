@@ -8,7 +8,7 @@
 
 void alpha() {
   
-  speed0();
+  stopCar(0);
   centerServo();
   delay(1500);  
 
@@ -53,7 +53,7 @@ void alpha() {
 
 
 void bravo() {
-  speed0();
+  stopCar(0);
   centerServo();
   delay(1500);
   
@@ -85,7 +85,7 @@ void bravo() {
 
 void charlie() {
   
-  speed0();
+  stopCar(0);
   centerServo();
 
   unsigned long timenow = 0;
