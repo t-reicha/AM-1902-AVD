@@ -3,6 +3,7 @@
 
 #include <P1AM.h>
 #include "buffer.h"
+#include "housekeeping.h"
 
 void pingSensor(int sensor) {
   switch (sensor) {

@@ -3,6 +3,7 @@
 
 #include "movement.h"
 #include "ultraSonic.h"
+#include "housekeeping.h"
 #include <P1AM.h>
 
 
@@ -11,6 +12,8 @@ void alpha() {
   stopCar(0);
   centerServo();
   delay(1500);  
+
+  housekeeping();
 
   drive(25);
   delay(2000);
