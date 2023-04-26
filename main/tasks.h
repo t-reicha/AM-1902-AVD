@@ -5,42 +5,53 @@
 #include "ultraSonic.h"
 #include <P1AM.h>
 
-/*
+
 void alpha() {
   
-  stopCar();
+  speed0();
   centerServo();
   delay(1500);  
 
-  drive(2000, 8.5);
+  drive(25);
+  delay(2000);
+
+  stopCar(25);
   delay(500);
   
-  turn(2500, 8.5);
+  turn(100);
+  delay(2500);
+  
+  drive(25);
+  delay(2000);
+
+  stopCar(25);
   delay(500);
   
-  drive(2000, 8.5);
+  turn(-100);
+  delay(2500);
+  
+  drive(25);
+  delay(2000);
+
+  stopCar(25);
   delay(500);
   
-  turn(2500, 6.5);
-  delay(500);
+  turn(0);
+  delay(2500);
   
-  drive(2000, 8.5);
-  delay(500);
-  
-  turn(2500, 7.5);
-  delay(500);
-  
-  drive(2000, 6.5);
+  drive(-25);
+  delay(2500);
+
+  stopCar(-25);
   delay(1500);
   
   signalFinish('A');
   delay(1500);
   
-  
   return;
 }
 
-
+/*
 void bravo() {
   stopCar();
   centerServo();
