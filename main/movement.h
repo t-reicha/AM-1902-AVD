@@ -101,26 +101,23 @@ void turn(float amount) {
 void lights(int light, bool state) {
   int digitalSlot = 1;
   
-  switch (light) {
-    case 1:
-      if (state == true) {
-        P1.writeDiscrete(HIGH, digitalSlot, 1);
-      } else if (state = false) {
-        P1.writeDiscrete(LOW, digitalSlot, 1);
-      }
-      break;
-    case 2:
-      if (state == true) {
-        P1.writeDiscrete(HIGH, digitalSlot, 1);
-      } else if (state = false) {
-        P1.writeDiscrete(LOW, digitalSlot, 1);
-      }
-      break;
-    default:
-      Serial.println("Invalid light!");
-      break;
+  if (light == 1) {
+    if (state == true) {
+      P1.writeDiscrete(HIGH, digitalSlot, 1);
+    } else if (state == false) {
+      P1.writeDiscrete(LOW, digitalSlot, 1);
+    }
+  } else if (light == 2) {
+    if (state == true) {
+      P1.writeDiscrete(HIGH, digitalSlot, 2);
+    } else if (state == false) {
+      P1.writeDiscrete(LOW, digitalSlot, 2);
+    }
+  } else {
+    Serial.println("Invalid light!");
   }
 }
+
 
 // rewrite using lights() and test
 void signalFinish(char task) {
@@ -129,86 +126,86 @@ void signalFinish(char task) {
 
   switch(task) {
     case 'A':
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
       
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(2000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       
       break;
     case 'B':
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(2000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
       
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
       
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
       
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
       
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       
       break;
     case 'C':
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(2000);
 
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
 
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
 
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
 
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(2000);
 
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       delay(1000);
 
-      P1.writeDiscrete(HIGH, digitalSlot, 1);
-      P1.writeDiscrete(HIGH, digitalSlot, 2);
+      lights(1, true);
+      lights(2, true);
       delay(1000);
 
-      P1.writeDiscrete(LOW, digitalSlot, 1);
-      P1.writeDiscrete(LOW, digitalSlot, 2);
+      lights(1, false);
+      lights(2, false);
       
       break;
     case 'D':

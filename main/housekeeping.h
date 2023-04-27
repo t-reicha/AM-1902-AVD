@@ -5,7 +5,7 @@ boolean MB_C[16]; //Modbus Coil Bits
 boolean MB_I[16]; //Modbus Input Bits
 int MB_HR[16];    //Modbus Holding Registers
 int MB_IR[16];    //Modbus Input Registers
-int Slot1_Inputs;
+//int Slot1_Inputs;
 
 EthernetServer server(502); //Standard Modbus Port is 502
 EthernetClient client;
@@ -53,10 +53,10 @@ void housekeeping() {
     }
       
   //Read from P1-08SIM Input Module and then write into Modbus memory
-  Slot1_Inputs = P1.readDiscrete(1,0); //Read from P1-08SIM Input Simulator Module
-  for (int i=0;i<8;i++){
-    MB_I[i]=Slot1_Inputs&(1<<i);
-  }
+  //Slot1_Inputs = P1.readDiscrete(1,0); //Read from P1-08SIM Input Simulator Module
+  //for (int i=0;i<8;i++){
+    //MB_I[i]=Slot1_Inputs&(1<<i);
+  //}
   updateInputs(); //Write current state of the Modbus Inputs into MB_I[]
 
   //Read from Analog Input Modules and then write into Modbus memory
@@ -64,7 +64,7 @@ void housekeeping() {
 
   updateCoils(); //Read current state of the Modbus Coils into MB_C[]
   for (int i=0;i<8;i++){
-    P1.writeDiscrete(MB_C[i],2,i+1);//Data,Slot,Channel ... Channel is one-based.
+//    P1.writeDiscrete(MB_C[i],2,i+1);//Data,Slot,Channel ... Channel is one-based.
   }
   
   updateHoldingRegisters(); //Read current state of the Modbus Registers into MB_HR[]

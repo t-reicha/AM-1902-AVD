@@ -70,28 +70,34 @@ void bravo() {
   stopCar(0);
   centerServo();
   delay(1500);
+  housekeeping();
   
   drive(20);
   delay(500);
 
   turn(-100);
   delay(3750);
+  housekeeping();
 
   turn(100);
   delay(21000);
 
   turn(-100);
   delay(3750);
+  housekeeping();
 
   turn(0);
 
   delay(1500);
+  housekeeping();
   
   stopCar(20);
   delay(2000);
+  housekeeping();
 
   signalFinish('B');
   delay(1500);
+  housekeeping();
 
   return;
 }

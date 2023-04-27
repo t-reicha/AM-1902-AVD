@@ -43,6 +43,7 @@ void setup() {
 }
 
 void loop() {
+  housekeeping();
 
   if (MB_C[0]) {
     alpha();
@@ -52,8 +53,7 @@ void loop() {
     bravo();
   }
 
-  // charlie();
-
-  // test stopCar(), and test new signalFinish()
-  // test new alpha()
+  if (MB_C[2]) {
+    charlie();
+  }
 }
