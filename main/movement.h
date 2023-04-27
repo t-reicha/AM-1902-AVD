@@ -3,6 +3,7 @@
 
 #include <P1AM.h>
 #include <stdio.h>
+#include "housekeeping.h"
 
 float dutyCycle = 7.5;
 int slot = 2;
@@ -129,6 +130,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -137,6 +139,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(2000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -146,6 +149,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(2000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -154,6 +158,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -162,6 +167,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -170,6 +176,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
       
       lights(1, false);
       lights(2, false);
@@ -179,6 +186,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(2000);
+      housekeeping();
 
       lights(1, false);
       lights(2, false);
@@ -187,6 +195,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
 
       lights(1, false);
       lights(2, false);
@@ -195,6 +204,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(2000);
+      housekeeping();
 
       lights(1, false);
       lights(2, false);
@@ -203,6 +213,7 @@ void signalFinish(char task) {
       lights(1, true);
       lights(2, true);
       delay(1000);
+      housekeeping();
 
       lights(1, false);
       lights(2, false);

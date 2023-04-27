@@ -104,6 +104,8 @@ void bravo() {
 
 
 void charlie() {
+
+  housekeeping();
   
   stopCar(0);
   centerServo();
@@ -112,18 +114,22 @@ void charlie() {
 
   drive(25);
   
-  while (millis() <= timenow + 100000) {
+  while (millis() <= timenow + 30000) {
+    housekeeping();
     //pingSensor('1');
     //delay(250);
     pingSensor('2');
     delay(250);
   }
 
+  housekeeping();
     
   stopCar(25);
   delay(2000);
   signalFinish('C');
   delay(10000);
+
+  return;
 }
 
 #endif
