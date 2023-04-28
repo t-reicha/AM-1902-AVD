@@ -8,6 +8,7 @@ int HEAD = 0;
 
 
 int roundToFive(int num) {
+  housekeeping();
   int remainder = num % 5;
   if (remainder <= 2) {
     // Round down to the nearest 5
@@ -20,6 +21,7 @@ int roundToFive(int num) {
 
 
 void addValue(int value) {
+  housekeeping();
   buffer[HEAD++] = value;
   if (HEAD >= BUFFER_SIZE) {
     HEAD = 0;
@@ -27,6 +29,7 @@ void addValue(int value) {
 }
 
 int getMode() {
+  housekeeping();
   int mode = 0;
   int maxCount = 0;
   for (int i = 0; i < BUFFER_SIZE; i++) {

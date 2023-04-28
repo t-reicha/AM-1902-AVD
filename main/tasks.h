@@ -57,6 +57,8 @@ void alpha() {
   stopCar(-25);
   housekeeping();
   delay(1500);
+
+  MB_C[0] = 0;
   
   signalFinish('A');
   housekeeping();
@@ -95,6 +97,8 @@ void bravo() {
   delay(2000);
   housekeeping();
 
+  MB_C[1] = 0;
+
   signalFinish('B');
   delay(1500);
   housekeeping();
@@ -109,12 +113,15 @@ void charlie() {
   
   stopCar(0);
   centerServo();
+  delay(5000);
 
   unsigned long timenow = 0;
 
   drive(25);
+
+  MB_C[2] = 0;
   
-  while (millis() <= timenow + 30000) {
+  while (millis() <= timenow + 9999999) {
     housekeeping();
     //pingSensor('1');
     //delay(250);

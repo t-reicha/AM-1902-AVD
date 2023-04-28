@@ -26,6 +26,8 @@ void pingSensor(int sensor) {
 
   long duration;
   long int distance;
+
+  housekeeping();
   
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -33,15 +35,21 @@ void pingSensor(int sensor) {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
+  housekeeping();
+
   duration = pulseIn(echoPin, HIGH);
   distance = duration / 2 / 29;
 
   addValue(roundToFive(distance));
 
+  housekeeping();
+
   int value = getMode();
 
   Serial.print(value);
   Serial.println(" cm");
+
+  housekeeping();
   
   if (value < 100 && value != 0) {
     

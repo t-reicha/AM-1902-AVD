@@ -120,7 +120,6 @@ void lights(int light, bool state) {
 }
 
 
-// rewrite using lights() and test
 void signalFinish(char task) {
   int digitalSlot = 1;
 
