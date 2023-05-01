@@ -1,43 +1,32 @@
 #ifndef _ULTRASONIC_H_
 #define _ULTRASONIC_H_
 
+#define trigPinD A1
+#define echoPinD A2
+
+#define trigPinP A5
+#define echoPinP A6
+
 #include <P1AM.h>
 #include "buffer.h"
 #include "housekeeping.h"
 
-void pingSensor(int sensor) {
-  switch (sensor) {
-    case '1': 
-      #define trigPin A1
-      #define echoPin A2
-      Serial.println("sensor 1");
-      break;
-    case '2': 
-      #define trigPin A5
-      #define echoPin A6
-      Serial.println("sensor 2");
-      break;
-    case '3': 
-      break;
-    default: 
-      Serial.println("Invalid Sensor!");
-      break;
-  }
+int pingSensorD() {
 
   long duration;
   long int distance;
 
   housekeeping();
   
-  digitalWrite(trigPin, LOW);
+  digitalWrite(trigPinD, LOW);
   delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
+  digitalWrite(trigPinD, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+  digitalWrite(trigPinD, LOW);
 
   housekeeping();
 
-  duration = pulseIn(echoPin, HIGH);
+  duration = pulseIn(echoPinD, HIGH);
   distance = duration / 2 / 29;
 
   addValue(roundToFive(distance));
@@ -50,20 +39,79 @@ void pingSensor(int sensor) {
   Serial.println(" cm");
 
   housekeeping();
+
+  return(value);
+}
+
+int pingSensorP() {
+
+  long duration;
+  long int distance;
+
+  housekeeping();
   
-  if (value < 100 && value != 0) {
+  digitalWrite(trigPinP, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPinP, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPinP, LOW);
+
+  housekeeping();
+
+  duration = pulseIn(echoPinP, HIGH);
+  distance = duration / 2 / 29;
+
+  addValue(roundToFive(distance));
+
+  housekeeping();
+
+  int value = getMode();
+
+  Serial.print(value);
+  Serial.println(" cm");
+
+  housekeeping();
+
+  return(value);
+}
+
+void checkDistance() {
+  long duration;
+  long int distance;
+  int value;
+
+  housekeeping();
+  
+  if (pingSensorD() < 100 && pingSensorD() != 0 || pingSensorP() < 100 && pingSensorP() != 0) {
     
     stopCar(25);
-    while (value < 100) {
+    while (pingSensorD() < 100 || pingSensorP() < 100) {
       housekeeping();
       stopCar(0);
-      digitalWrite(trigPin, LOW);
+      digitalWrite(trigPinD, LOW);
       delayMicroseconds(2);
-      digitalWrite(trigPin, HIGH);
+      digitalWrite(trigPinD, HIGH);
       delayMicroseconds(10);
-      digitalWrite(trigPin, LOW);
+      digitalWrite(trigPinD, LOW);
 
-      duration = pulseIn(echoPin, HIGH);
+      duration = pulseIn(echoPinD, HIGH);
+      distance = duration / 2 / 29;
+
+      addValue(roundToFive(distance));
+
+      value = getMode();
+
+      Serial.print(value);
+      Serial.println(" cm");
+      delay(250);
+
+      digitalWrite(trigPinP, LOW);
+      delayMicroseconds(2);
+      digitalWrite(trigPinP, HIGH);
+      delayMicroseconds(10);
+      digitalWrite(trigPinP, LOW);
+
+      duration = pulseIn(echoPinP, HIGH);
       distance = duration / 2 / 29;
 
       addValue(roundToFive(distance));
@@ -75,10 +123,9 @@ void pingSensor(int sensor) {
     }
     drive(25);
   } else {
+    housekeeping();
     return;
   }
-
-  return;
 }
 
 #endif

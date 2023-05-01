@@ -123,9 +123,10 @@ void charlie() {
   
   while (millis() <= timenow + 9999999) {
     housekeeping();
-    //pingSensor('1');
-    //delay(250);
-    pingSensor('2');
+    pingSensorD();
+    delay(250);
+    pingSensorP();
+    checkDistance();
     delay(250);
   }
 

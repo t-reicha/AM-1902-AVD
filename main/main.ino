@@ -36,14 +36,21 @@ void setup() {
   modbusTCPServer.configureHoldingRegisters(0x00, 16);
   modbusTCPServer.configureInputRegisters(0x00, 16);
 
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(trigPinD, OUTPUT);
+  pinMode(echoPinD, INPUT);
+  pinMode(trigPinP, OUTPUT);
+  pinMode(echoPinP, INPUT);
 
   Serial.println("Done with setup!");
 }
 
 void loop() {
   housekeeping();
+
+  pingSensorD();
+  delay(1000);
+  pingSensorP();
+  delay(1000);
 
   if (MB_C[0]) {
     alpha();
