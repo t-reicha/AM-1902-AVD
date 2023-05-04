@@ -47,8 +47,6 @@ void setup() {
 void loop() {
   housekeeping();
 
-  pingSensorD();
-  delay(1000);
   pingSensorP();
   delay(1000);
 
@@ -56,9 +54,13 @@ void loop() {
     alpha();
   }
 
+  housekeeping();
+
   if (MB_C[1]) {
     bravo();
   }
+
+  housekeeping();
 
   if (MB_C[2]) {
     charlie();

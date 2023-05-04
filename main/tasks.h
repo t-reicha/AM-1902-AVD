@@ -58,7 +58,8 @@ void alpha() {
   housekeeping();
   delay(1500);
 
-  MB_C[0] = 0;
+  modbusTCPServer.coilWrite(0,0);
+  housekeeping();
   
   signalFinish('A');
   housekeeping();
@@ -97,7 +98,8 @@ void bravo() {
   delay(2000);
   housekeeping();
 
-  MB_C[1] = 0;
+  modbusTCPServer.coilWrite(1,0);
+  housekeeping();
 
   signalFinish('B');
   delay(1500);
@@ -118,18 +120,15 @@ void charlie() {
   unsigned long timenow = 0;
 
   drive(25);
-
-  MB_C[2] = 0;
   
   while (millis() <= timenow + 9999999) {
     housekeeping();
-    pingSensorD();
-    delay(250);
     pingSensorP();
     checkDistance();
     delay(250);
   }
 
+  modbusTCPServer.coilWrite(2,0);
   housekeeping();
     
   stopCar(25);
