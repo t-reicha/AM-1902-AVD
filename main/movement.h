@@ -24,6 +24,12 @@ void centerServo() {
 }
 
 
+void speedSet(int speeds) {
+  float dutyCycle = floatMap(speeds, -100, 100, 5, 10);
+  P1.writePWM(dutyCycle, frequency, slot, d);
+  P1.writePWM(dutyCycle, frequency, slot, p);
+}
+
 void drive(float speeds) {
   float dutyCycle = floatMap(speeds, -100, 100, 5, 10);
   float finalCycle = 7.5;

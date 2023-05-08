@@ -22,6 +22,15 @@ void rgb() {
   
   return;
 }
+
+
+drive, start at 25%?
+
+while speed is greater than 7.5 AND speed is less than or equal to 10
+check sensor every so often
+if distance is greater than certain amount, speed up
+if distance is less than certain amount, slow down
+
 */
 
 #endif
