@@ -7,6 +7,9 @@
 #define trigPinP A5
 #define echoPinP A6
 
+#define trigPinS 1
+#define echoPinS 2
+
 #include <P1AM.h>
 #include "buffer.h"
 #include "housekeeping.h"
@@ -59,6 +62,38 @@ int pingSensorP() {
   housekeeping();
 
   duration = pulseIn(echoPinP, HIGH);
+  distance = duration / 2 / 29;
+
+  addValue(roundToFive(distance));
+
+  housekeeping();
+
+  int value = getMode();
+
+  Serial.print(value);
+  Serial.println(" cm");
+
+  housekeeping();
+
+  return(value);
+}
+
+int pingSensorS() {
+
+  long duration;
+  long int distance;
+
+  housekeeping();
+  
+  digitalWrite(trigPinS, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPinS, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPinS, LOW);
+
+  housekeeping();
+
+  duration = pulseIn(echoPinS, HIGH);
   distance = duration / 2 / 29;
 
   addValue(roundToFive(distance));
