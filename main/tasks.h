@@ -150,6 +150,7 @@ void delta(int startSpeed) {
   drive(startSpeed);
 
   while (startSpeed <= 0) {
+    stopCar(0);
     Serial.println("You cannot go backwards in this task!");
     housekeeping();
     delay(2500);
@@ -162,22 +163,20 @@ void delta(int startSpeed) {
 
     housekeeping();
 
-    while (pingSensorD() > 48 /* temp value */ && startSpeed > 0 /*|| pingSensorP() > 48 /* temp value  && startSpeed > 0*/) {
+    while (pingSensorD() > 50 && startSpeed < 50 && startSpeed > 0 /*|| pingSensorP() > 50 && startSpeed > 0*/) {
       speedSet(startSpeed);
-      startSpeed++;
+      startSpeed += 5;
       housekeeping();
       delay(50);
     }
 
-    while (pingSensorD() < 43 /* temp value */ && startSpeed < 100 /*|| pingSensorP() < 43 /* temp value  && startSpeed < 100*/) {
+    while (pingSensorD() < 40 && startSpeed > 0 /*|| pingSensorP() < 40 && startSpeed < 100*/) {
       speedSet(startSpeed);
-      startSpeed--;
+      startSpeed -= 5;
       housekeeping();
       delay(50);
     }
   }
-
-  
 }
 
 #endif
